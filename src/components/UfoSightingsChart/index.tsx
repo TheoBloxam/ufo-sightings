@@ -4,9 +4,10 @@ import { getUfoSightings } from "../../lib/api"
 import { SightingsBarChart } from "./components/BarChart"
 import { extendedStyled, styled } from "./styled"
 import { AlertBox } from "./components/AlertBox"
+import type { ParsedUfoSighting } from "../../types/ufoSighting"
 
 export const UfoSightingsChart = () => {
-  const { data: ufoSightings, isLoading, isError, error } = useQuery({
+  const { data: ufoSightings, isLoading, isError, error } = useQuery<ParsedUfoSighting[][]>({
     queryKey: ['ufoSightings'],
     queryFn: getUfoSightings 
   }) 
@@ -30,7 +31,7 @@ export const UfoSightingsChart = () => {
     <Stack
       sx={styled.container}
       spacing={2}>
-        <SightingsBarChart currentWeekData={ufoSightings} />
+        <SightingsBarChart currentWeekData={ufoSightings[0]} />
     </Stack>
   )
 }
