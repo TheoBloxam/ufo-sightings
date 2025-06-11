@@ -12,5 +12,10 @@ export const styled = {
         backgroundColor: grey[900],
         color: grey[100],
         border: `1px solid ${grey[700]}`
+    },
+    alert: {
+        backgroundColor: grey[900],
+        border: `1px solid ${grey[700]}`,
+        color: (theme: Theme) => theme.palette.error.main
     }
 }
