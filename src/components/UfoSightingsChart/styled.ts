@@ -17,6 +17,6 @@ export const extendedStyled = {
     ...styled,
     tallContainer: {
         ...styled.container,
-        height: 500
+        height: 457
     }
 }
