@@ -1,18 +1,28 @@
-import { Stack } from "@mui/material"
+import { Box, CircularProgress, Stack } from "@mui/material"
 import { useQuery } from "@tanstack/react-query"
 import { getUfoSightings } from "../../lib/api"
 import { SightingsBarChart } from "./components/BarChart"
+import { extendedStyled, styled } from "./styled"
 
 export const UfoSightingsChart = () => {
-  const { data: ufoSightings } = useQuery({
+  const { data: ufoSightings, isLoading } = useQuery({
     queryKey: ['ufoSightings'],
     queryFn: getUfoSightings 
   }) 
 
-  console.log('I am such a sigma!', ufoSightings)
+  if (isLoading || !ufoSightings) {
+    return (
+      <Box
+      sx={extendedStyled.tallContainer}>
+        <CircularProgress />
+      </Box>
+    )
+  }
 
   return (
-    <Stack>
+    <Stack
+      sx={styled.container}
+      spacing={2}>
         <SightingsBarChart currentWeekData={ufoSightings} />
     </Stack>
   )

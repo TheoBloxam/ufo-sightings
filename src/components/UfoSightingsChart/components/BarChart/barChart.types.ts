@@ -1,5 +1,5 @@
-import type { UfoSighting } from "../../../../types/ufoSighting";
+import type { ParsedUfoSighting } from "../../../../types/ufoSighting";
 
 export interface BarChartProps {
-    currentWeekData: UfoSighting[]
+    currentWeekData: ParsedUfoSighting[]
 }
