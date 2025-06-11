@@ -18,7 +18,9 @@ export const SightingsBarChart = ({
                 <CartesianGrid stroke={grey[700]}/>
                 <XAxis dataKey="date" stroke={grey[100]} tickFormatter={(date: Date) => formatDateToLocale(date, 'short')}/>
                 <YAxis stroke={grey[100]}/>
-                <Tooltip />
+                <Tooltip 
+                contentStyle={styled.chartTooltip}
+                labelFormatter={(date: Date) => formatDateToLocale(date, 'long')}/>
                 <Bar dataKey="sightings" fill={theme.palette.primary.main}/>
             </BarChart>
         </ResponsiveContainer>
